@@ -129,13 +129,13 @@ export default function ServicesStack() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative h-[800vh] bg-[#0a0a0a]" id="services-stack">
-      <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
+    <section ref={containerRef} className="relative h-auto lg:h-[800vh] bg-[#0a0a0a]" id="services-stack">
+      <div ref={stickyRef} className="relative lg:sticky lg:top-0 lg:h-screen w-full lg:overflow-hidden">
         {/* All service layers stacked on top of each other */}
         {services.map((service, i) => (
           <div
             key={service.number}
-            className="service-layer absolute inset-0 w-full h-full"
+            className="service-layer relative lg:absolute lg:inset-0 h-screen w-full bg-[#0a0a0a] border-t border-white/5"
             style={{ zIndex: i + 1 }}
           >
             {/* Background Image */}
@@ -147,33 +147,32 @@ export default function ServicesStack() {
                 className="object-cover"
                 priority={i < 2}
               />
-              {/* <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] opacity-60" /> */}
-              <div className="absolute inset-0 bg-black/30" />
+              <div className="absolute inset-0 bg-black/40 lg:bg-black/30" />
             </div>
 
             {/* Large Translucent Background Text */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] select-none pointer-events-none whitespace-nowrap z-10">
-              <h3 className="text-[25vw] font-display tracking-[-0.02em] text-white">
+            <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] lg:opacity-[0.05] select-none pointer-events-none whitespace-nowrap z-10">
+              <h3 className="text-[30vw] lg:text-[25vw] font-display tracking-[-0.02em] text-white">
                 {service.accent}
               </h3>
             </div>
 
             {/* Content Container */}
             <div className="floating-content relative z-20 h-full w-full max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col justify-center">
-              <div className={`grid grid-cols-1 lg:grid-cols-1 items-end ${service.alignRight ? "text-right" : "text-left"}`}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 items-center lg:items-end ${service.alignRight ? "text-right" : "text-left"}`}>
                 <div className={`max-w-2xl ${service.alignRight ? "lg:order-2 ml-auto" : "lg:order-1"}`}>
-                  <div className={`text-[0.65rem] tracking-[0.5em] text-[#c9a84c] uppercase mb-6 flex items-center gap-4 ${service.alignRight ? "justify-end" : ""}`}>
+                  <div className={`text-[0.6rem] lg:text-[0.65rem] tracking-[0.5em] text-[#c9a84c] uppercase mb-6 flex items-center gap-4 ${service.alignRight ? "justify-end" : ""}`}>
                     {!service.alignRight && <span className="w-8 h-px bg-[#c9a84c]/40" />}
                     Service {service.number}
                     {service.alignRight && <span className="w-8 h-px bg-[#c9a84c]/40" />}
                   </div>
-                  <h3 className="text-4xl md:text-7xl lg:text-8xl tracking-widest font-display text-white uppercase leading-[0.9] mb-8">
+                  <h3 className="text-3xl md:text-7xl lg:text-8xl tracking-widest font-display text-white uppercase leading-[0.9] mb-8">
                     {service.title.split(",")[0]} <br />
                     <span className="text-gradient-gold">
                       {service.title.split(",").slice(1).join(",") || ""}
                     </span>
                   </h3>
-                  <p className={`text-sm md:text-base text-white/50 tracking-wide leading-relaxed max-w-lg mb-10 ${service.alignRight ? "ml-auto" : ""}`}>
+                  <p className={`text-xs md:text-base text-white/50 tracking-wide leading-relaxed max-w-lg mb-10 ${service.alignRight ? "ml-auto" : ""}`}>
                     {service.description}
                   </p>
                   
@@ -181,12 +180,12 @@ export default function ServicesStack() {
                     href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').split(',')[0]}`}
                     className={`inline-flex items-center gap-6 group ${service.alignRight ? "flex-row-reverse" : ""}`}
                   >
-                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#c9a84c] group-hover:bg-[#c9a84c] transition-all duration-500">
-                      <svg className={`w-4 h-4 text-white group-hover:text-black transition-colors ${service.alignRight ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#c9a84c] group-hover:bg-[#c9a84c] transition-all duration-500">
+                      <svg className={`w-3 h-3 lg:w-4 lg:h-4 text-white group-hover:text-black transition-colors ${service.alignRight ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </div>
-                    <span className="text-[0.65rem] tracking-[0.4em] text-white/70 uppercase group-hover:text-white transition-colors">
+                    <span className="text-[0.6rem] lg:text-[0.65rem] tracking-[0.4em] text-white/70 uppercase group-hover:text-white transition-colors">
                       Explore Projects
                     </span>
                   </a>
