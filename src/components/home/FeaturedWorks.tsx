@@ -16,18 +16,21 @@ const works = [
     category: "Video Production",
     video: "https://assets.mixkit.co/videos/preview/mixkit-cinematic-shot-of-a-man-walking-in-the-city-44675-large.mp4",
     image: "/assets/home/featured1.png",
+    description: "Defining luxury visual narratives through state-of-the-art cinematography.",
   },
   {
     title: "DIGITAL FRONTIERS",
     category: "Web Development",
     video: "https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-futuristic-city-with-neon-lights-44674-large.mp4",
     image: "/assets/home/featured2.png",
+    description: "High-performance digital experiences crafted with architectural precision.",
   },
   {
     title: "LUXURY MOTION",
     category: "App Design",
     video: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-person-using-a-futuristic-interface-44673-large.mp4",
     image: "/assets/home/featured3.png",
+    description: "Fluid mobile interactions designed for the modern digital landscape.",
   },
 ];
 
