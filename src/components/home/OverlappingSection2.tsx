@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OverlappingSection2() {
   return (
@@ -38,12 +39,12 @@ export default function OverlappingSection2() {
             <p className="text-[0.7rem] tracking-[0.3em] text-white/70 uppercase mb-8 max-w-md ml-auto">
               Cutting-edge visual solutions for modern broadcasting and digital media.
             </p>
-            <a
-              href="/services"
+            <Link
+              href="#"
               className="inline-flex items-center justify-center min-w-[280px] px-8 py-3 border border-white/60 text-white text-[0.6rem] tracking-[0.4em] uppercase hover:bg-white hover:text-black transition-all duration-700"
             >
               EXPLORE BROADCAST
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

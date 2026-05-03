@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OverlappingSection() {
   return (
@@ -31,12 +32,12 @@ export default function OverlappingSection() {
             <p className="text-[0.7rem] tracking-[0.4em] text-white/70 uppercase mb-4">
               Utilise stunning 3D animation to tell your story visually and impressively.
             </p>
-            <a
+            <Link
               href="/services/animation"
               className="inline-flex items-center justify-center min-w-[320px] px-8 py-2.5 border border-white/60 text-white text-[0.65rem] tracking-[0.4em] uppercase hover:bg-white hover:text-black transition-all duration-700"
             >
               3D ANIMATION SERVICE
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -99,13 +100,13 @@ export default function OverlappingSection() {
               <p className="text-[0.65rem] text-white/60 tracking-widest uppercase mb-6">
                 Crafting cinematic narratives through precision filming and visual mastery.
               </p>
-              <a
+              <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-4 text-[0.65rem] tracking-[0.4em] text-[#c9a84c] uppercase group"
               >
                 VIEW CASE STUDIES
                 <span className="w-10 h-px bg-[#c9a84c]/40 group-hover:w-16 transition-all duration-500" />
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>

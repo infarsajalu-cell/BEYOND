@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,9 +125,6 @@ export default function ServicesStack() {
       });
     }
 
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
   }, { scope: containerRef });
 
   return (
@@ -159,7 +158,7 @@ export default function ServicesStack() {
 
             {/* Content Container */}
             <div className="floating-content relative z-20 h-full w-full max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col justify-center">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 items-center lg:items-end ${service.alignRight ? "text-right" : "text-left"}`}>
+              <div className={`grid grid-cols-1  items-center lg:items-end ${service.alignRight ? "text-right" : "text-left"}`}>
                 <div className={`max-w-2xl ${service.alignRight ? "lg:order-2 ml-auto" : "lg:order-1"}`}>
                   <div className={`text-[0.6rem] lg:text-[0.65rem] tracking-[0.5em] text-[#c9a84c] uppercase mb-6 flex items-center gap-4 ${service.alignRight ? "justify-end" : ""}`}>
                     {!service.alignRight && <span className="w-8 h-px bg-[#c9a84c]/40" />}
@@ -176,7 +175,8 @@ export default function ServicesStack() {
                     {service.description}
                   </p>
                   
-                  <a
+
+                  <Link
                     href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').split(',')[0]}`}
                     className={`inline-flex items-center gap-6 group ${service.alignRight ? "flex-row-reverse" : ""}`}
                   >
@@ -188,7 +188,7 @@ export default function ServicesStack() {
                     <span className="text-[0.6rem] lg:text-[0.65rem] tracking-[0.4em] text-white/70 uppercase group-hover:text-white transition-colors">
                       Explore Projects
                     </span>
-                  </a>
+                  </Link>
                 </div>
 
                 <div className={`hidden lg:flex ${service.alignRight ? "lg:order-1 justify-start border-r" : "justify-end border-l"} pr-10 border-white/10`}>

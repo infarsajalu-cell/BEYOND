@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollReveal from "@/components/shared/ScrollReveal";
@@ -111,13 +112,13 @@ export default function ServiceDetail({
             <p className="mt-8 text-sm text-[#888] leading-relaxed max-w-xl">
               {description}
             </p>
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-3 mt-8 px-8 py-4 text-[#0a0a0a] text-xs tracking-[0.3em] uppercase font-bold rounded transition-all duration-500 hover:scale-105 active:scale-95 shadow-lg"
               style={{ backgroundColor: accentColor, boxShadow: `0 10px 30px -10px ${accentColor}44` }}
             >
               Start A Project
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -220,7 +221,7 @@ export default function ServiceDetail({
                         {item.description}
                       </p>
                       
-                      <a
+                      <Link
                         href="/portfolio"
                         className={`inline-flex items-center gap-6 group ${i % 2 !== 0 ? "flex-row-reverse" : ""}`}
                       >
@@ -232,7 +233,7 @@ export default function ServiceDetail({
                         <span className="text-[0.65rem] tracking-[0.4em] text-white/70 uppercase group-hover:text-white transition-colors">
                           View Project Details
                         </span>
-                      </a>
+                      </Link>
                     </motion.div>
                   </div>
                 </div>
@@ -291,18 +292,18 @@ export default function ServiceDetail({
               Elevate your brand with cinematic visual content and cutting-edge digital solutions. Our team is ready to bring your vision to life.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
+              <Link
                 href="/contact"
                 className="px-10 py-5 bg-[#c9a84c] text-[#0a0a0a] text-xs tracking-[0.3em] uppercase font-bold hover:bg-[#c9a84c]/90 transition-all rounded w-full sm:w-auto"
               >
                 Get A Quote
-              </a>
-              <a
-                href="/services"
+              </Link>
+              <Link
+                href="/portfolio"
                 className="px-10 py-5 border border-white/10 text-white text-xs tracking-[0.3em] uppercase font-bold hover:bg-white/5 transition-all rounded w-full sm:w-auto"
               >
-                Other Services
-              </a>
+                View Portfolio
+              </Link>
             </div>
           </motion.div>
         </div>

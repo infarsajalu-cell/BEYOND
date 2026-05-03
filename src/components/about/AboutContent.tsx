@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import SectionHeading from "@/components/shared/SectionHeading";
 import TeamScroll from "../home/TeamScroll";
 
@@ -162,14 +163,14 @@ export default function AboutContent() {
               <p className="text-sm text-white/50 tracking-wide leading-relaxed max-w-md mb-8">
                 Driven by imagination and refined by expertise — we harness every creative discipline to craft stories that captivate, inspire, and leave a lasting impact.
               </p>
-              <a href="/services" className="inline-flex items-center gap-4 group">
+              <Link href="/services/video-production" className="inline-flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#c9a84c] group-hover:bg-[#c9a84c] transition-all duration-500">
                   <svg className="w-4 h-4 text-white group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
                 <span className="text-[0.65rem] tracking-[0.4em] text-white/60 uppercase group-hover:text-white transition-colors">Our Services</span>
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -218,14 +219,14 @@ export default function AboutContent() {
                 From concept to final delivery — we produce video, animation, photography, and digital content at the highest level of craft and quality.
               </p>
               <div className="flex justify-end">
-                <a href="/services" className="inline-flex items-center gap-4 group flex-row-reverse">
+                <Link href="/services/video-production" className="inline-flex items-center gap-4 group flex-row-reverse">
                   <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#c9a84c] group-hover:bg-[#c9a84c] transition-all duration-500">
                     <svg className="w-4 h-4 text-white group-hover:text-black rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </div>
                   <span className="text-[0.65rem] tracking-[0.4em] text-white/60 uppercase group-hover:text-white transition-colors">Our Services</span>
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -319,12 +320,12 @@ export default function AboutContent() {
             Whether you&apos;re looking to redefine your brand, create a stunning film, or launch a world-class digital product, we&apos;re here to make it happen.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <a
+            <Link
               href="/contact"
               className="inline-block px-10 py-4 bg-[#c9a84c] text-[#0a0a0a] text-xs tracking-[0.3em] uppercase font-bold hover:bg-[#c9a84c]/90 transition-all rounded"
             >
               Get In Touch
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

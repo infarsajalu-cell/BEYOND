@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,9 +38,6 @@ export default function Hero() {
       },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
   }, { scope: sectionRef });
 
   return (
@@ -107,7 +106,7 @@ export default function Hero() {
             className="max-w-xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             <div className="text-[0.55rem] md:text-[0.6rem] tracking-[0.4em] md:tracking-[0.5em] text-[#c9a84c] uppercase mb-4 md:mb-6">
               Beyond The Borders
@@ -124,13 +123,13 @@ export default function Hero() {
               show-stopping content that turns heads and drives results.
             </p>
           </motion.div>
-
+ 
           {/* Right */}
           <motion.div
             className="mt-auto lg:mt-0 lg:text-right lg:self-end lg:pb-20 pb-12 lg:pb-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 1, delay: 0.4 }}
           >
             <div className="text-[0.5rem] md:text-[0.55rem] tracking-[0.4em] text-[#888] uppercase mb-2">
               Professional
@@ -141,7 +140,8 @@ export default function Hero() {
             <p className="text-[0.65rem] md:text-xs text-[#888] mb-6 max-w-[240px] lg:max-w-xs lg:ml-auto">
               Bringing stories to life on location, with cinematic precision and creative vision.
             </p>
-            <a
+
+            <Link
               href="/services/video-production"
               className="inline-flex items-center gap-3 px-5 md:px-6 py-2.5 md:py-3 border border-[#c9a84c]/40 text-[#c9a84c] text-[0.65rem] md:text-xs tracking-[0.3em] uppercase hover:bg-[#c9a84c]/10 transition-all duration-500 rounded group"
               id="hero-cta"
@@ -155,7 +155,7 @@ export default function Hero() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = ["All", "Video", "Animation", "Web", "Design", "Events"];
 
@@ -191,12 +192,12 @@ export default function PortfolioContent() {
                       Category: {selectedItem.category}
                     </p>
                   </div>
-                  <a
+                  <Link
                     href="/contact"
                     className="px-10 py-4 bg-[#c9a84c] text-[#0a0a0a] text-[0.65rem] tracking-[0.3em] font-bold uppercase rounded-full hover:scale-105 transition-transform"
                   >
                     Start Project
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

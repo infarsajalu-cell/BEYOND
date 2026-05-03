@@ -5,11 +5,13 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
+import BackButton from "./BackButton";
+
 const navLinks = [
   { href: "/", label: "HOME" },
   { href: "/about", label: "ABOUT" },
   {
-    href: "/services",
+    href: "#",
     label: "OUR SERVICES",
     dropdown: [
       { href: "/services/video-production", label: "Video Production" },
@@ -45,6 +47,10 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    if (href === "#") {
+      e.preventDefault();
+      return;
+    }
     if (pathname === href) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -62,38 +68,45 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link 
-            href="/" 
-            className="relative z-50 group flex items-center gap-3" 
-            id="navbar-logo"
-            onClick={(e) => handleLinkClick(e, "/")}
-          >
-            <div className="relative w-10 h-10 lg:w-12 lg:h-12 overflow-hidden">
-              <Image 
-                src="/assets/home/logo.png" 
-                alt="Beyond The Borders Logo" 
-                fill 
-                className="object-contain transition-transform duration-500 group-hover:scale-110" 
-              />
-            </div>
-            <div className="flex flex-col">
-              <div className="text-xl tracking-wider leading-none font-bold font-display">
-                <span className="text-white group-hover:text-[#c9a84c] transition-colors duration-300">
-                  BEYOND THE BORDERS
-                </span>
+          {/* Left Side: Back Button & Logo */}
+          <div className="flex items-center gap-3 lg:gap-6">
+            {pathname !== "/" && (
+              <BackButton />
+            )}
+            
+            {/* Logo */}
+            <Link 
+              href="/" 
+              className="relative z-50 group flex items-center gap-3" 
+              id="navbar-logo"
+              onClick={(e) => handleLinkClick(e, "/")}
+            >
+              <div className="relative w-10 h-10 lg:w-12 lg:h-12 overflow-hidden">
+                <Image 
+                  src="/assets/home/logo.png" 
+                  alt="Beyond The Borders Logo" 
+                  fill 
+                  className="object-contain transition-transform duration-500 group-hover:scale-110" 
+                />
               </div>
-              <div className="text-[0.45rem] tracking-[0.3em] text-[#888] uppercase mt-0.5 hidden sm:block">
-                Unlimited Multimedia Solutions
+              <div className="flex flex-col">
+                <div className="text-xl tracking-wider leading-none font-bold font-display">
+                  <span className="text-white group-hover:text-[#c9a84c] transition-colors duration-300">
+                    BEYOND THE BORDERS
+                  </span>
+                </div>
+                <div className="text-[0.45rem] tracking-[0.3em] text-[#888] uppercase mt-0.5 hidden sm:block">
+                  Unlimited Multimedia Solutions
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <div
-                key={link.href}
+                key={link.label}
                 className="relative"
                 onMouseEnter={() => link.dropdown && setDropdownOpen(true)}
                 onMouseLeave={() => link.dropdown && setDropdownOpen(false)}
@@ -101,11 +114,15 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-xs tracking-[0.2em] uppercase text-[#888] hover:text-[#c9a84c] transition-colors duration-300 py-2 relative group"
+                  className={`text-xs tracking-[0.2em] uppercase transition-colors duration-300 py-2 relative group ${
+                    link.href === "#" ? "cursor-default text-[#888]" : "text-[#888] hover:text-[#c9a84c]"
+                  }`}
                   id={`nav-${link.label.toLowerCase().replace(/\s/g, "-")}`}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-px bg-[#c9a84c] transition-all duration-300 group-hover:w-full" />
+                  {link.href !== "#" && (
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-[#c9a84c] transition-all duration-300 group-hover:w-full" />
+                  )}
                   {link.dropdown && (
                     <svg
                       className="inline-block ml-1 w-3 h-3"
@@ -204,13 +221,19 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className="text-3xl font-bold tracking-wider text-white hover:text-[#c9a84c] transition-colors font-display"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href === "#" ? (
+                    <span className="text-3xl font-bold tracking-wider text-[#c9a84c] font-display">
+                      {link.label}
+                    </span>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                      className="text-3xl font-bold tracking-wider text-white hover:text-[#c9a84c] transition-colors font-display"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                   {link.dropdown && (
                     <div className="mt-4 mb-4 flex flex-col items-center gap-2">
                       {link.dropdown.map((sub) => (

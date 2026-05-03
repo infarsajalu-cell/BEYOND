@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BrandIntro() {
   return (
@@ -93,13 +94,13 @@ export default function BrandIntro() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mt-12"
             >
-              <a
+              <Link
                 href="/about"
                 className="inline-flex items-center gap-4 text-[0.65rem] tracking-[0.4em] text-[#c9a84c] uppercase hover:gap-6 transition-all duration-300 group"
               >
                 DISCOVER OUR STORY
                 <span className="w-10 h-px bg-[#c9a84c]/40 group-hover:w-16 transition-all duration-500" />
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>
